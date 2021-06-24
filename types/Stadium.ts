@@ -1,13 +1,14 @@
 export type Data = {
-    data: Teams;
-}
-  
+  data: Teams;
+};
+
 export interface Teams {
-    [name: string]: TeamInfo;
+  [name: string]: TeamInfo;
 }
 
-interface TeamInfo {
-    name: string;
-    address: string;
-    crestUrl: string;
+export interface TeamInfo {
+  name: string;
+  address: string;
+  crestUrl: string;
+  id: number;
 }
