@@ -31,7 +31,9 @@ export const Title: React.FC<Props> = ({ teamName, clubBadge, change }) => {
       </TeamInfo>
       <DropDown change={change}>
         {dates
-          .sort((a: any, b: any) => Math.abs(moment(b).valueOf() - moment(a).valueOf()))
+          .sort((a: any, b: any) =>
+            Math.abs(moment(b).valueOf() - moment(a).valueOf())
+          )
           .map((date) => (
             <option key={date}>{date}</option>
           ))}
