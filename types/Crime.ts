@@ -30,6 +30,21 @@ interface PostCodeInfo {
   latitude: number;
 }
 
+export interface CrimeData {
+  category: string;
+  location_type: string;
+  location: CrimeLocation;
+  outcome_status?: {
+    category: string;
+  };
+}
+
+export interface CrimeLocation {
+  street: {
+    name: string;
+  };
+}
+
 export const crime: any = {
   "all-crime": {
     name: "All Crime",

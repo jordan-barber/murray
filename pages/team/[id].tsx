@@ -8,6 +8,7 @@ import moment from "moment";
 import { fetchCrimeData } from "../../helpers/api";
 import { Crime } from "../../components/Crime";
 import { Error } from "../../components/Error";
+import { CrimeData } from "../../types/Crime";
 
 const Container = styled.div`
   max-width: 800px;
@@ -82,7 +83,7 @@ const Team: NextPage<Props> = ({
           <Error message="There is no crime available for the specified date." />
         )}
         {Object.keys(stadiumCrimeInfo).length > 0 &&
-          stadiumCrimeInfo.map((crime, i) => {
+          stadiumCrimeInfo.map((crime: CrimeData, i: number) => {
             return (
               <Crime
                 key={i}
@@ -109,8 +110,8 @@ export async function getServerSideProps(context: any) {
 
   const postCode = teamInfo.address
     .split(",")
-    .map((s) => s.trim().match(/([A-Za-z]{1,2}\d{1,2})(\s?(\d?\w{2}))?/))
-    .filter((e) => e)[0][0];
+    .map((s: string) => s.trim().match(/([A-Za-z]{1,2}\d{1,2})(\s?(\d?\w{2}))?/))
+    .filter((e: any) => e)[0][0];
 
   const crimeInfo = await fetch(
     `http://localhost:3000/api/crime/${postCode}`

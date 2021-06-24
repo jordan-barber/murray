@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { crime } from "../types/Crime";
+import { crime, CrimeLocation } from "../types/Crime";
 
 const CrimeContainer = styled.div`
   display: flex;
@@ -30,7 +30,7 @@ const H4 = styled.h4`
 interface Props {
   category: string;
   locationType: string;
-  location: any;
+  location: CrimeLocation;
   outcomeStatus?: string;
 }
 
@@ -47,7 +47,7 @@ export const Crime: React.FC<Props> = ({
         <FontAwesomeIcon icon={crime[category].icon} /> {crime[category].name}
       </H3>
       <H4>{location.street.name}</H4>
-      <H3 color={"red"}>{outcomeStatus}</H3>
+      <H3>{outcomeStatus}</H3>
     </CrimeContainer>
   );
 };
