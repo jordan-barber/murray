@@ -40,7 +40,6 @@ export const Crime: React.FC<Props> = ({
   location,
   outcomeStatus,
 }) => {
-  console.log(":SDF:DS:F " + category);
   return (
     <CrimeContainer>
       <H3>

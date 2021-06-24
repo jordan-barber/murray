@@ -22,8 +22,6 @@ export default async function handler(
       `${process.env.CRIMES_API_URL}/api/crimes-at-location?date=${date}&lat=${latitude}&lng=${longitude}`
     );
 
-    console.log("DS:FDS:F:DSF: " + JSON.stringify(data));
-
     res.send(data);
   } catch (e) {
     console.error(e);
